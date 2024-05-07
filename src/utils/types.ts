@@ -1,26 +1,28 @@
 // import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Routes} from '../navigation/routes';
 import {DrawerScreenProps} from '@react-navigation/drawer';
 
-
 export type ApplicationParamsList = {
-  [Routes.Home]:undefined;
+  [Routes.Home]: undefined;
   [Routes.About]: undefined;
   [Routes.Splash]: undefined;
   [Routes.Drawer]: undefined;
   [Routes.login]: undefined;
-
+  [Routes.Carousel]: undefined;
 };
 
 //first screen
-export type SplashScreenProps = DrawerScreenProps<ApplicationParamsList, 'Splash'>;
-
+export type SplashScreenProps = DrawerScreenProps<
+  ApplicationParamsList,
+  'Splash'
+>;
 
 //auth screen
-export type LoginScreenProps  = NativeStackScreenProps<ApplicationParamsList,"login">;
-
-
+export type LoginScreenProps = NativeStackScreenProps<
+  ApplicationParamsList,
+  'login'
+>;
 
 //application screens
 export type HomeScreenProps = DrawerScreenProps<ApplicationParamsList, 'Home'>;
@@ -28,5 +30,12 @@ export type AboutScreenProps = DrawerScreenProps<
   ApplicationParamsList,
   'About'
 >;
-export type DrawerScreenProps = DrawerScreenProps<ApplicationParamsList, 'Drawer'>;
+export type DrawerScreenProps = DrawerScreenProps<
+  ApplicationParamsList,
+  'Drawer'
+>;
 
+export type CarouselScreenProps = NativeStackScreenProps<
+  ApplicationParamsList,
+  'Carousel'
+>;

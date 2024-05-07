@@ -3,5 +3,6 @@ export const Routes = {
   About: 'About',
   Splash: 'Splash',
   Drawer:'Drawer',
-  login:'login'
+  login:'login',
+  Carousel: 'Carousel',
 } as const;

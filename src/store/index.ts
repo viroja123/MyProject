@@ -1,13 +1,11 @@
-import { configureStore,combineReducers } from '@reduxjs/toolkit'
-import { persistReducer, persistStore } from 'redux-persist';
-import { setupListeners } from '@reduxjs/toolkit/query';
-import { MMKV } from 'react-native-mmkv';
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import {persistReducer, persistStore} from 'redux-persist';
+import {setupListeners} from '@reduxjs/toolkit/query';
+import {MMKV} from 'react-native-mmkv';
 
-import auth from '../store/auth'
-import { api } from '../services/api';
+import auth from '../store/auth';
 
-
-const reducers = combineReducers({auth });
+const reducers = combineReducers({auth});
 
 const storage = new MMKV();
 // for set get and remove item from local storage
@@ -27,29 +25,27 @@ export const localStorage = {
 };
 
 const persistConfig = {
-    key: 'root',
-    storage: localStorage,
-    whitelist: ['auth'],
-  };
-  
-  const rootReducer = persistReducer(persistConfig, reducers);
+  key: 'root',
+  storage: localStorage,
+  whitelist: ['auth'],
+};
+const rootReducer = persistReducer(persistConfig, reducers);
 
- const store = configureStore({
+const store = configureStore({
   reducer: rootReducer,
-  middleware: (getDefaultMiddleware) => {
+  middleware: getDefaultMiddleware => {
     const middleware = getDefaultMiddleware({
       immutableCheck: false,
       serializableCheck: false,
-    }).concat(api.middleware);
+    });
     return middleware;
   },
-
-})
+});
 
 const persistor = persistStore(store);
 setupListeners(store.dispatch);
 
-export { store, persistor };
+export {store, persistor};
 
 export type RootState = ReturnType<typeof store.getState>;
 
