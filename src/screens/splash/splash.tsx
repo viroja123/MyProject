@@ -10,8 +10,8 @@ export default function splash({navigation}) {
     }
 )
   return (
-    <View style={{backgroundColor:'yellow',flex:1}}>
-      <Text style={{justifyContent:'center',alignItems:'center',textAlign:'center',color:'white',fontSize:20}}>splash</Text>
+    <View style={{backgroundColor:'#0d6efd',flex:1}}>
+      <Text style={{textAlign:'center',color:'white',fontSize:20}}>Halo</Text>
     </View>
   )
 }
