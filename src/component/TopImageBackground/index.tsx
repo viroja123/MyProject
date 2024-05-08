@@ -8,11 +8,11 @@ type CustomImageProps = {
   customViewStyle?: ViewProps['style'];
 };
 
-const CustomImage: React.FC<CustomImageProps> = ({
+const CustomImage =  ({
   urlName,
   customImageStyle,
   customViewStyle,
-}) => {
+}:CustomImageProps) => {
   console.log(urlName);
   return (
     <View style={[customViewStyle]}>

@@ -7,7 +7,7 @@ import {ApplicationParamsList} from '../utils/types';
 // import drawerNavigator from './drawerNavigator';
 import login from '../screens/auth/login/login';
 import Home from '../screens/home/Home';
-import Carousel from '../screens/Carousel/Carousel';
+import Carousel from '../screens/carousel';
 
 export default function Application() {
   const Stack = createNativeStackNavigator<ApplicationParamsList>();
