@@ -1,19 +1,24 @@
 import { View, Text, Pressable, PressableProps, TextStyle, ViewStyle } from 'react-native';
 import React from 'react';
+import styles from './style';
 
 interface ButtonProps extends PressableProps {
-    btnName : string;
-    handleButton: () => void;
-    btnStyle?: ViewStyle;
-    btnTextStyle?: TextStyle;
+  btnName: string;
+  handleButton: () => void;
+  btnStyle?: ViewStyle;
+  btnTextStyle?: TextStyle;
+  containerStyle?: ViewStyle;
+  accessibilityLabel?: string; 
 }
 
-const PrimaryButton = ({ btnName, handleButton, btnStyle, btnTextStyle }:ButtonProps) => {
-    return (
-        <Pressable onPress={handleButton} style={[btnStyle, { backgroundColor: '#0D6EFD', borderRadius: 16,height:56 ,alignItems:'center',justifyContent:'center'}]}>
-            <Text style={[btnTextStyle, { color: 'white',fontWeight:'600',lineHeight:20,fontSize:16 }]}>{btnName}</Text>
-        </Pressable>
-    );
+const PrimaryButton = ({ btnName, handleButton, btnStyle, btnTextStyle, containerStyle, accessibilityLabel }: ButtonProps) => {
+  return (
+    <View style={containerStyle}>
+      <Pressable onPress={handleButton} style={[styles.pressButton, btnStyle]} accessibilityLabel={accessibilityLabel}>
+        <Text style={[styles.text, btnTextStyle]}>{btnName}</Text>
+      </Pressable>
+    </View>
+  );
 };
 
 export default PrimaryButton;

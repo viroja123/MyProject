@@ -87,6 +87,7 @@ export const whiteTheme = {
   green: '#0BDA51',
   lightBgAppColor: '#FDF9DE',
   yellowGradient: ['#FFEB3B', '#FBC02D', '#F9A825'],
+  textColor:'#1B1E28',
 };
 
 export default {commonThemeColor, blackTheme, whiteTheme};

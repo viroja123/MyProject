@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TextInput, StyleProp, TextStyle, ViewStyle, TextInputProps, KeyboardTypeOptions, ReturnKeyTypeOptions, ImageSourcePropType, Pressable, Image } from 'react-native';
 import { AutoCapitalize } from '../../utils/InputConfig';
+import styles from './style';
 
 interface PrimaryTextInputProps extends TextInputProps {
     mainViewStyle?: StyleProp<ViewStyle>;
@@ -13,15 +14,15 @@ interface PrimaryTextInputProps extends TextInputProps {
     multiLine?: boolean;
     secureTextEntry?: boolean;
     isEditable?: boolean;
-    autoCapitalize: AutoCapitalize;
+    autoCapitalize?: AutoCapitalize;
     onSubmitEditing: () => void;
     onBlur: () => void;
     rightIcon?: ImageSourcePropType | null;
     handleRightIconClick: () => void;
-    validationError: string;
+    validationError?: string;
 }
 
-const PrimanyTextInput = ({ placeholder, value, mainViewStyle, textStyle, onChangeText, onFocus, keyboardType, reference, returnKeyType, maxLength, numberOfLines, multiLine, secureTextEntry, isEditable, autoCapitalize, onSubmitEditing, onBlur, rightIcon, handleRightIconClick, validationError }: PrimaryTextInputProps) => {
+const PrimaryTextInput = ({ placeholder, value, mainViewStyle, textStyle, onChangeText, onFocus, keyboardType, reference, returnKeyType, maxLength, numberOfLines, multiLine, secureTextEntry, isEditable, autoCapitalize, onSubmitEditing, onBlur, rightIcon, handleRightIconClick, validationError }: PrimaryTextInputProps) => {
     return (
         <View style={mainViewStyle}>
             <TextInput
@@ -40,18 +41,18 @@ const PrimanyTextInput = ({ placeholder, value, mainViewStyle, textStyle, onChan
                 placeholder={placeholder}
                 onFocus={onFocus}
                 onBlur={onBlur}
-                style={[textStyle, { backgroundColor: '#F7F7F9', borderRadius: 14, height: 56 }]}
+                style={[textStyle, styles.textInputStyle]}
             />
             {rightIcon && (
-                <Pressable onPress={handleRightIconClick} hitSlop={10}>
-                    <Image style={{ tintColor: 'red' }} source={rightIcon} />
+                <Pressable onPress={handleRightIconClick} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+                    <Image source={rightIcon} />
                 </Pressable>
             )}
             {validationError && (
-                <Text style={[]}>{"Error in Text Input"}</Text>
+                <Text>{"Validation Error: " + validationError}</Text>
             )}
         </View>
     )
 }
 
-export default PrimanyTextInput;
+export default PrimaryTextInput;
