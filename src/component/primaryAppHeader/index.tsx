@@ -1,7 +1,7 @@
-import { View, Text, Pressable } from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import React from 'react';
-import { Arrow } from '../../assets/Svgs/index';
-import { useTheme } from '@react-navigation/native';
+import {Arrow} from '../../assets/Svgs/index';
+import {useTheme} from '@react-navigation/native';
 import styles from './style';
 
 interface AppHeaderProps {
@@ -12,8 +12,14 @@ interface AppHeaderProps {
   handleRightIcon?: () => void;
 }
 
-export default function PrimaryAppHeader({ headerName, rightIcon, leftIcon, handleLeftIcon, handleRightIcon }: AppHeaderProps) {
-  const { colors } = useTheme();
+export default function PrimaryAppHeader({
+  headerName,
+  rightIcon,
+  leftIcon,
+  handleLeftIcon,
+  handleRightIcon,
+}: AppHeaderProps) {
+  const {colors} = useTheme();
 
   return (
     <View style={styles.mainViewContainer}>
@@ -25,11 +31,15 @@ export default function PrimaryAppHeader({ headerName, rightIcon, leftIcon, hand
       )}
 
       {/* Header Text */}
-      <Text style={[styles.centerText, { color: colors.text }]}>{headerName}</Text>
+      <Text style={[styles.centerText, {color: colors.text}]}>
+        {headerName}
+      </Text>
 
       {/* Right Icon */}
       {rightIcon && (
-        <Pressable onPress={handleRightIcon} accessibilityLabel="Navigate forward">
+        <Pressable
+          onPress={handleRightIcon}
+          accessibilityLabel="Navigate forward">
           <Arrow />
         </Pressable>
       )}

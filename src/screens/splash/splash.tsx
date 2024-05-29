@@ -2,7 +2,7 @@ import {View, Text} from 'react-native';
 import React, {useEffect} from 'react';
 import {Routes} from '../../navigation/routes';
 
-export default function splash({navigation}) {
+export default function Splash({navigation}) {
   useEffect(() => {
     setTimeout(() => {
       navigation.navigate(Routes.Carousel);

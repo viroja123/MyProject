@@ -8,8 +8,11 @@ export type ApplicationParamsList = {
   [Routes.About]: undefined;
   [Routes.Splash]: undefined;
   [Routes.Drawer]: undefined;
-  [Routes.login]: undefined;
+  [Routes.Login]: undefined;
   [Routes.Carousel]: undefined;
+  [Routes.Signup]: undefined;
+  [Routes.Forgot]: undefined;
+  [Routes.OtpScreen]: undefined;
 };
 
 //first screen
@@ -21,7 +24,22 @@ export type SplashScreenProps = DrawerScreenProps<
 //auth screen
 export type LoginScreenProps = NativeStackScreenProps<
   ApplicationParamsList,
-  'login'
+  'Login'
+>;
+
+export type SignupScreenProps = NativeStackScreenProps<
+  ApplicationParamsList,
+  'Signup'
+>;
+
+export type ForgotPasswordScreenProps = NativeStackScreenProps<
+  ApplicationParamsList,
+  'Forgot'
+>;
+
+export type OtpScreenProps = NativeStackScreenProps<
+  ApplicationParamsList,
+  'OptScreen'
 >;
 
 //application screens

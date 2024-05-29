@@ -2,7 +2,10 @@ export const Routes = {
   Home: 'Home',
   About: 'About',
   Splash: 'Splash',
-  Drawer:'Drawer',
-  login:'login',
+  Drawer: 'Drawer',
+  Login: 'Login',
   Carousel: 'Carousel',
+  Signup: 'Signup',
+  Forgot: 'Forgot',
+  OtpScreen: 'OptScreen',
 } as const;

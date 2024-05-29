@@ -1,7 +1,7 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {LoginScreenProps} from '../../../utils/types';
+import {SignupScreenProps} from '../../../utils/types';
 import {style} from './style';
 import PrimaryButton from '../../../component/primaryButton';
 import {
@@ -14,10 +14,23 @@ import {useTheme} from '@react-navigation/native';
 import PrimaryTextInput from '../../../component/PrimaryTextInput';
 import {FacebookSvgs, InstagramSvgs} from '../../../assets/Svgs';
 import {Routes} from '../../../navigation/routes';
-import {commonThemeColor} from '../../../theme/Colors';
 
-const Login = ({navigation}: LoginScreenProps) => {
+const Signup = ({navigation}: SignupScreenProps) => {
+  const dispatch = useDispatch();
+
   const inputDetials = [
+    {
+      PlaceHolder: 'User Name',
+      Label: 'Name',
+      KeyboardType: KeyboardType.default,
+      ReturnKeyType: ReturnKeyType.next,
+      AutoCapitalize: AutoCapitalize.none,
+      RightIcon: false,
+      ErrorKey: 'Name',
+      onSubmitEditing: () => {
+        // refCallbackForNextInputField.current.focus();
+      },
+    },
     {
       PlaceHolder: 'Email',
       Label: 'Email',
@@ -40,34 +53,36 @@ const Login = ({navigation}: LoginScreenProps) => {
       ErrorKey: 'Password',
     },
   ];
-  const hadleSignInBtn = () => {
-    console.log('click the single sign in button');
+  const hadleSignUpBtn = () => {
+    console.log('click the single sign Up button');
   };
 
   const handleNavigation = () => {
     navigation.navigate(Routes.Signup);
   };
-
-  const {colors} = useTheme();
-  const handleForgotScreen = () => {
-    navigation.navigate(Routes.Forgot);
+  const handleGoBack = () => {
+    navigation.goBack();
   };
-
+  const {colors} = useTheme();
   return (
-    <View style={{backgroundColor: colors.background}}>
-      <PrimaryAppHeader leftIcon={true} key={'header'} />
+    <>
+      <PrimaryAppHeader
+        leftIcon={true}
+        key={'header'}
+        handleLeftIcon={handleGoBack}
+      />
       <View
         style={[style.mainTextViewStyle, {backgroundColor: colors.background}]}>
-        <Text style={style.mainTextStyle} accessibilityLabel="Sign in now">
-          Sign in now
+        <Text style={style.mainTextStyle} accessibilityLabel="Sign Up now">
+          Sign up now
         </Text>
         <Text
           style={style.subTextStyle}
-          accessibilityLabel="Please sign in to continue our app">
-          Please sign in to continue our app
+          accessibilityLabel="Please sign Up to continue our app">
+          Please fill the details and create account
         </Text>
         {inputDetials.map((item, index) => (
-          <View style={{marginTop: 40}} key={index}>
+          <View style={{marginTop: 24}} key={index}>
             <View>
               {/* <Text style={{ color: 'black', fontSize: 16, fontWeight: '400' }}>{item.Label}</Text> */}
             </View>
@@ -91,45 +106,43 @@ const Login = ({navigation}: LoginScreenProps) => {
 
         <Text
           style={style.forgotTextStyle}
-          accessibilityLabel="Forgot your password?"
-          onPress={handleForgotScreen}>
+          accessibilityLabel="Forgot your password?">
           Forget Password?
         </Text>
 
-        <View>
-          <PrimaryButton
-            btnName="Sign In"
-            handleButton={hadleSignInBtn}
-            containerStyle={{paddingTop: 40}}
-          />
-          <View
-            style={{
-              flexDirection: 'row',
-              paddingVertical: 30,
-              alignSelf: 'center',
-            }}>
-            <Text style={style.commanTextStyle}>Don’t have an account?</Text>
-            <Text
-              style={{paddingHorizontal: 8, color: 'blue', fontSize: 15}}
-              onPress={handleNavigation}>
-              Sign up
-            </Text>
-          </View>
-          <Text style={{textAlign: 'center'}}>Or connect</Text>
-        </View>
+        <PrimaryButton
+          btnName="Sign Up"
+          handleButton={hadleSignUpBtn}
+          containerStyle={{paddingTop: 40}}
+        />
         <View
           style={{
             flexDirection: 'row',
-            paddingVertical: 30,
-            alignSelf: 'center',
+            paddingVertical: 20,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text>Already have an account</Text>
+          <Text
+            style={{paddingHorizontal: 8, color: 'blue', fontSize: 15}}
+            onPress={handleNavigation}>
+            Sign in
+          </Text>
+        </View>
+        <Text style={{textAlign: 'center'}}>Or connect</Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            paddingVertical: 40,
+            alignItems: 'center',
+            justifyContent: 'center',
           }}>
           <FacebookSvgs />
-          <Text> </Text>
           <InstagramSvgs />
         </View>
       </View>
-    </View>
+    </>
   );
 };
 
-export default Login;
+export default Signup;

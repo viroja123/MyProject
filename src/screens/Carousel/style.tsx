@@ -18,6 +18,6 @@ export const style = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     textAlign: 'center',
-    paddingVertical:20
+    paddingVertical: 20,
   },
 });

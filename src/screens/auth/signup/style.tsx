@@ -28,10 +28,4 @@ export const style = StyleSheet.create({
     marginTop: 40,
     justifyContent: 'center',
   },
-  commanTextStyle: {
-    fontSize: 18,
-    fontWeight: '400',
-    lineHeight: 20,
-    color: '#7D848D',
-  },
 });

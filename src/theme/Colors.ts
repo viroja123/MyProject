@@ -23,6 +23,7 @@ export const commonThemeColor = {
   transparent: 'transparent',
   success: '#dfd',
   green: '#0BDA51',
+  primaryLightTextColor: '#7D848D',
   // Add new color here
 };
 
@@ -87,7 +88,7 @@ export const whiteTheme = {
   green: '#0BDA51',
   lightBgAppColor: '#FDF9DE',
   yellowGradient: ['#FFEB3B', '#FBC02D', '#F9A825'],
-  textColor:'#1B1E28',
+  textColor: '#1B1E28',
 };
 
 export default {commonThemeColor, blackTheme, whiteTheme};

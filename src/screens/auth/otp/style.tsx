@@ -7,6 +7,7 @@ export const style = StyleSheet.create({
     lineHeight: 34,
     textAlign: 'center',
     color: '#1B1E28',
+    marginTop: 40,
   },
   subTextStyle: {
     fontSize: 18,
@@ -16,22 +17,26 @@ export const style = StyleSheet.create({
     marginVertical: 12,
     color: '#7D848D',
   },
-  forgotTextStyle: {
-    color: '#0D6EFD',
-    fontSize: 14,
-    fontWeight: '500',
-    textAlign: 'right',
-    paddingTop: 16,
-  },
-  mainTextViewStyle: {
+  mainView: {
     paddingHorizontal: 20,
-    marginTop: 40,
-    justifyContent: 'center',
   },
-  commanTextStyle: {
-    fontSize: 18,
+  underlineStyleBase: {
+    width: 64,
+    height: 60,
+    borderWidth: 1,
+    color: 'black',
+    borderRadius: 12,
+    backgroundColor: '#1B1E281D',
+    fontSize: 20,
     fontWeight: '400',
-    lineHeight: 20,
-    color: '#7D848D',
+  },
+  underlineStyleHighLighted: {
+    borderColor: '#03DAC6',
+  },
+  otpTextStyle: {
+    fontSize: 24,
+    fontWeight: '600',
+    lineHeight: 32,
+    color: '#1B1E28',
   },
 });

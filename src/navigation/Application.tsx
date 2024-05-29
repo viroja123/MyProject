@@ -8,6 +8,11 @@ import {ApplicationParamsList} from '../utils/types';
 import login from '../screens/auth/login/login';
 import Home from '../screens/home/Home';
 import Carousel from '../screens/carousel';
+import Splash from '../screens/splash/splash';
+import Login from '../screens/auth/login/login';
+import Signup from '../screens/auth/signup';
+import ForgotPassword from '../screens/auth/forgotPassword';
+import OtpScreen from '../screens/auth/otp';
 
 export default function Application() {
   const Stack = createNativeStackNavigator<ApplicationParamsList>();
@@ -16,9 +21,12 @@ export default function Application() {
       <Stack.Navigator
         initialRouteName={Routes.Splash}
         screenOptions={{headerShown: false}}>
-        <Stack.Screen name={Routes.Splash} component={splash} />
+        <Stack.Screen name={Routes.Splash} component={Splash} />
         <Stack.Screen name={Routes.Carousel} component={Carousel} />
-        <Stack.Screen name={Routes.login} component={login} />
+        <Stack.Screen name={Routes.Login} component={Login} />
+        <Stack.Screen name={Routes.Signup} component={Signup} />
+        <Stack.Screen name={Routes.Forgot} component={ForgotPassword} />
+        <Stack.Screen name={Routes.OtpScreen} component={OtpScreen} />
         <Stack.Screen name={Routes.Home} component={Home} />
         {/* <Stack.Screen name={Routes.Drawer} component={drawerNavigator} options={{headerShown:false}}/> */}
       </Stack.Navigator>

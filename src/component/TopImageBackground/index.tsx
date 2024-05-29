@@ -3,22 +3,26 @@ import {View, Image, ImageProps, ViewProps} from 'react-native';
 import {style} from './style';
 
 type CustomImageProps = {
-  urlName: string;
+  urlName?: string;
   customImageStyle?: ImageProps['style'];
   customViewStyle?: ViewProps['style'];
+  accessibilityLabel?: string;
 };
 
-const CustomImage =  ({
+const CustomImage = ({
   urlName,
   customImageStyle,
   customViewStyle,
-}:CustomImageProps) => {
+  accessibilityLabel,
+}: CustomImageProps) => {
   console.log(urlName);
   return (
     <View style={[customViewStyle]}>
       <Image
         source={require('../../assets/images/boat.png')}
         style={[style.imageStyle, customImageStyle]}
+        alt="Image"
+        accessibilityLabel={accessibilityLabel}
       />
     </View>
   );
